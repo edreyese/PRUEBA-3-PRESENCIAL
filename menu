@@ -1,0 +1,27 @@
+import funciones as fn
+salir=True
+while salir==True:
+
+    print("Menu Vehiculos Auto Seguro")
+    print("ELIJA UNA OPCION :")
+    print("1.- GRABAR AUTO .-")
+    print("2.- INFORMACION DE AUTOS GUARDADOS")
+    print("3.- IMPRIMIR CERTIFICADOS")
+    print("4.- SALIR")
+
+    op=1
+    while op!=4:
+        op=int(input("INGRESE OPCION"))
+        if op==1:
+            fn.grabar_vehiculo()
+        else:
+            if op==2:
+                fn.buscar_auto()
+            else:
+                if op==3:
+                    fn.imprimir_certificados()
+    salir=input("DESEA SALIR SI/NO :")
+    if salir=="SI":
+        salir==False
+
+    
