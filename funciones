@@ -1,0 +1,70 @@
+import numpy as np
+
+datos_vehiculos={}
+vehiculos=[]
+
+def grabar_vehiculo():
+    tipo=input("INGRESE TIPO DE AUTO :")
+    patente=input("INGRESE NUMERO DE PATENTE :")
+    marca=input("INGRESE MARCA :")
+    while len(marca)<2 or len(marca)>15:
+        print("EL RANGO DE CARACTERES ES ENTRE 2 Y 15")
+        marca=input("INGRESE MARCA :")
+    precio=int(input("INGRESE PRECIO :"))
+    while precio <5000000:
+        print("EL PRECIO DEBE SER MAYOR A 5.000.000")
+        precio=int(input("INGRESE PRECIO :"))
+    multa=input("INGRESE MULTA SI o NO :")
+    if multa=="SI":
+        precioMulta=int(input("PRECIO DE MULTA :"))
+        fechaMulta=input("FECHA DE MULTA : ")
+    fechaRegistro=input("FECHA DE REGISTRO :")
+    nombreDueno=input("NOMBRE DEL DUEÑO :")
+    datos_vehiculos[patente] = {
+        "tipo": tipo,
+        "patente": patente,
+        "marca": marca,
+        "precio": precio,
+        "multa ":multa,
+        "fechaRegistro":fechaRegistro,
+        "nombreDueno" :nombreDueno
+    } 
+    vehiculos.append(patente)     
+    print(datos_vehiculos)
+    print(vehiculos)
+grabar_vehiculo()
+
+def buscar_auto():
+    try:
+        patenteBuscada=input("INGRESE PATENTE QUE BUSCA")
+        print(datos_vehiculos[patenteBuscada])
+    except :
+        print("EL NUMERO NO EXISTE")
+
+        
+
+buscar_auto()
+
+
+def imprimir_certificados():
+    emision_contaminantes=np.random(1500,3500)
+    anotaciones_vigentes=np.random(1500,3500)
+    Multas=np.random(1500,3500)
+    patenteBuscada=input("INGRESE PATENTE BUSCADA")
+    if op2==1:
+        print("CERTIFICADO DE EMISION CONTAMINANTES")
+        patenteBuscada=input("INGRESE PATENTE BUSCADA")
+        if patenteBuscada==datos_vehiculos['patente']:
+            print("ELIJA CERTIFICADO")
+            print("1.-EMISION CONTAMINANTES")
+            print("2.- ANOTACIONES VIGENTES")
+            print("3.-MULTAS")
+            print("4.-VOLVER")
+            op2=int(input("ELIJA OPCION"))
+            print("CERTIFICADO:")
+            print(emision_contaminantes)
+            print(anotaciones_vigentes)
+            print(Multas)
+            print(datos_vehiculos[patenteBuscada])
+            print()
+
